@@ -102,9 +102,15 @@ router.get("/get", async (req, res) => {
   res.status(200).json({ busList: allBusses });
 });
 
+router.get("/get/:id", async (req, res) => {
+  const bus = await Bus.findById(req.params.id);
+  console.log(bus);
+  res.status(200).json({ bus });
+});
+
 router.get("/seats-view", async (req, res) => {
   const { id } = req.query;
-  const bus = await Bus.findById(id).populate("Layout");
+  const bus = await Bus.findById(id)
   const Layout = bus.Layout;
   let responseLayout = [];
   for (let i = 0; i < Layout.length; i++) {

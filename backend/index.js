@@ -28,6 +28,9 @@ app.get("/test-user", authenticate,authorize(["U"]), (req, res) => {
 
 //common
 app.use("/auth", auth);
+app.get("/auth-check",authenticate,(req,res)=>{
+  return res.status(200).json({isAuthenticated:true})
+})
 
 //admin
 app.use("/bus", authenticate, authorize(["A"]), bus);

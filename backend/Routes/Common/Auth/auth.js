@@ -9,6 +9,7 @@ router.post("/signup", async (req, res) => {
   try {
     const { name, email, password,role } = req.body;
     const user = await User.findOne({ email });
+    console.log(user)
     if (user) {
       return res.status(400).json({ message: "User Already exists" });
     }
@@ -29,7 +30,7 @@ router.post("/signup", async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: 3600,
     });
-    res.status(200).send({ message: "Account Created Successfully", token });
+    res.status(200).send({ message: "Account Created Successfully", token,role,name,id:newUser.id });
   } catch (e) {
     console.log(e);
     res.status(500).json({ message: "Server Error", error: e });
@@ -42,7 +43,7 @@ router.post('/login',async (req,res)=>{
     if(!user){
         return res.status(400).json({message:"User dosenot exist"})
     }
-    console.log(user)
+    console.log('user')
     const isMatch = await bcrypt.compare(password,user.password);
     if(!isMatch){
         return res.status(400).json({message:"Incorrect password"})
@@ -61,7 +62,8 @@ router.post('/login',async (req,res)=>{
     )
     const role = user.role
     delete user.password
-    res.status(200).send({message:"Logged in Successfully",token,role})
+    console.log("success hit")
+    res.status(200).send({message:"Logged in Successfully",token,role,name:user.name,id:user.id})
 })
 
 module.exports = router;

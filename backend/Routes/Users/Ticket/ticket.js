@@ -11,6 +11,12 @@ router.get("/bus/get", async (req, res) => {
   res.status(200).json({ busList });
 });
 
+router.get("/bus/get/:id", async (req, res) => {
+  const bus = await Bus.findById(req.params.id);
+  console.log(bus);
+  res.status(200).json({ bus });
+});
+
 router.get("/seats", async (req, res) => {
   const { id } = req.query;
   const bus = await Bus.findById(id);
