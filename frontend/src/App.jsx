@@ -34,7 +34,9 @@ const App = () => {
     <div>
       <Router>
         <Navbar />
+        <div className="mt-[80px]">
         <RoutesComponent isAuthenticated={true} />
+        </div>
       </Router>
     </div>
   );

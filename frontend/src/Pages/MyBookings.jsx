@@ -70,8 +70,8 @@ const MyBookings = () => {
   }
 
   return (
-    <div className="mt-[5%] p-6 space-y-6">
-      <h1 className="text-3xl font-semibold text-gray-800 mb-6">My Bookings</h1>
+    <div className=" p-6 space-y-6 w-[100vw] flex flex-col justify-center items-center">
+      <h1 className="text-3xl font-semibold text-white mb-6">My Bookings</h1>
 
       {/* Table */}
       <div className="overflow-x-auto rounded-lg shadow-lg">

@@ -8,7 +8,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className=" flex flex-row items-center flex-shrink-0">
             <a href="/" className="text-2xl font-bold text-gray-700">
-              MyApp
+              MyBus
             </a>
             <p className="mx-10 text-xl text-black">{`Hey! ${name}`}</p>
           </div>

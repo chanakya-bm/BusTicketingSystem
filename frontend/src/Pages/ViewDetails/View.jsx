@@ -37,8 +37,8 @@ const View = () => {
       }
       console.log("busAdat",busData)
   return (
-      <div className="min-h-screen flex flex-col items-center">
-      <div className="mt-[70%]" />
+      <div className="min-h-screen w-[99vw]  flex flex-col justify-center items-center">
+      <div className="" />
         {/* Header */}
         <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mt-10">
           <h1 className="text-2xl font-bold text-gray-800 text-center mb-4">

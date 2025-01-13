@@ -31,7 +31,7 @@ const Home = () => {
       return <Spinner />
     }
   return (
-    <div className="w-full grid grid-cols-4">
+    <div className="flex flex-row flex-wrap gap-4 justify-center">
       {busList?.map((bus) => (
         <BusCard key={bus._id} busData={bus} />
       ))}
